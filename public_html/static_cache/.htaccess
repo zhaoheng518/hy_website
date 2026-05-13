@@ -1,0 +1,11 @@
+# Module 12: Static cache directory — deny all direct HTTP access.
+# Cache files are served exclusively through the PHP Router (StaticCache::tryServe).
+# This prevents direct URL access to raw cache files.
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

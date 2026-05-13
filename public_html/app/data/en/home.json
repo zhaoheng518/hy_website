@@ -1,0 +1,265 @@
+{
+    "banner": {
+        "title": "Precision Engineering for Defense & Industry",
+        "subtitle": "Military-grade stitching technology — trusted by defense contractors worldwide",
+        "cta_text": "Request a Quote",
+        "cta_link": "\/en\/contact",
+        "background_image": "",
+        "background_video": ""
+    },
+    "products": {
+        "title": "Core Product Categories",
+        "subtitle": "Specialized solutions for defense and industrial applications",
+        "items": [
+            {
+                "id": "p1",
+                "name": "Tactical Stitching Systems",
+                "slug": "tactical-stitching-systems",
+                "menu_subtitle": "Military textile production",
+                "desc": "High-performance stitching equipment designed for military textile production",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p2",
+                "name": "Industrial Sewing Machines",
+                "slug": "industrial-sewing-machines",
+                "menu_subtitle": "Ballistic fabric processing",
+                "desc": "Heavy-duty machines for ballistic fabric and composite materials",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p3",
+                "name": "Smart Automation",
+                "slug": "smart-automation",
+                "menu_subtitle": "AI quality inspection",
+                "desc": "AI-powered quality inspection and automated production lines",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p4",
+                "name": "Custom Solutions",
+                "slug": "custom-solutions",
+                "menu_subtitle": "Specialized defense engineering",
+                "desc": "Tailored engineering for specialized defense manufacturing needs",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p5",
+                "name": "Cable Harnessing",
+                "slug": "cable-harnessing",
+                "menu_subtitle": "Wire & cable assembly",
+                "desc": "Precision cable harnessing for defense communication systems",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p6",
+                "name": "RF Shielding",
+                "slug": "rf-shielding",
+                "menu_subtitle": "EMI\/RFI protection",
+                "desc": "RF shielding solutions for sensitive military electronics",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p7",
+                "name": "Thermal Management",
+                "slug": "thermal-management",
+                "menu_subtitle": "Heat dissipation systems",
+                "desc": "Advanced thermal management for high-power defense systems",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p8",
+                "name": "Sealing Solutions",
+                "slug": "sealing-solutions",
+                "menu_subtitle": "Environmental protection",
+                "desc": "Hermetic sealing for harsh environment military equipment",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p9",
+                "name": "Composite Bonding",
+                "slug": "composite-bonding",
+                "menu_subtitle": "Structural adhesives",
+                "desc": "High-strength composite bonding for aerospace applications",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p10",
+                "name": "Optical Assembly",
+                "slug": "optical-assembly",
+                "menu_subtitle": "Precision optics",
+                "desc": "Precision optical assembly for targeting and surveillance",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p11",
+                "name": "Power Distribution",
+                "slug": "power-distribution",
+                "menu_subtitle": "Military-grade power units",
+                "desc": "Ruggedized power distribution for field operations",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p12",
+                "name": "Sensor Integration",
+                "slug": "sensor-integration",
+                "menu_subtitle": "Multi-sensor systems",
+                "desc": "Integrated sensor packages for situational awareness",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p13",
+                "name": "EMI Filtering",
+                "slug": "emi-filtering",
+                "menu_subtitle": "Electromagnetic compliance",
+                "desc": "EMI filtering solutions for military communication equipment",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p14",
+                "name": "Vibration Isolation",
+                "slug": "vibration-isolation",
+                "menu_subtitle": "Shock & vibration mounts",
+                "desc": "Vibration isolation systems for ruggedized electronics",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p15",
+                "name": "Enclosure Systems",
+                "slug": "enclosure-systems",
+                "menu_subtitle": "Ruggedized enclosures",
+                "desc": "IP67 rated enclosure systems for field deployment",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            },
+            {
+                "id": "p16",
+                "name": "Connector Solutions",
+                "slug": "connector-solutions",
+                "menu_subtitle": "Military connectors",
+                "desc": "MIL-DTL qualified connector solutions",
+                "image": "",
+                "menu_thumbnail": "",
+                "link": "",
+                "show_in_menu": true
+            }
+        ]
+    },
+    "factory": {
+        "title": "Factory & Capabilities",
+        "subtitle": "State-of-the-art manufacturing with rigorous quality control",
+        "content": "Our 50,000 sqm facility houses advanced R&D labs, clean-room production environments, and comprehensive testing equipment. With over 200 engineers and ISO 9001 certified processes, we deliver precision-engineered solutions that meet the most demanding military specifications.萨达省肯德基卡的健康萨达和飞机",
+        "images": [
+            "\/uploads\/images\/img_6a01a088223a15.18867953.jpg"
+        ]
+    },
+    "cases": {
+        "title": "Applications & Solutions",
+        "subtitle": "Proven performance across defense and industrial sectors",
+        "items": [
+            {
+                "id": "c1",
+                "title": "Body Armor Production",
+                "desc": "Complete stitching solution for multi-layer ballistic vest manufacturing",
+                "image": "",
+                "slug": ""
+            },
+            {
+                "id": "c2",
+                "title": "Military Tent Systems",
+                "desc": "Automated production line for field-deployable shelter systems",
+                "image": "",
+                "slug": ""
+            },
+            {
+                "id": "c3",
+                "title": "Aerospace Composites",
+                "desc": "Precision stitching for lightweight composite structural components",
+                "image": "",
+                "slug": ""
+            }
+        ]
+    },
+    "about": {
+        "title": "About Stitch Tech",
+        "content": "Founded in 2008, Stitch Tech has grown from a specialized sewing machine manufacturer into a comprehensive defense technology provider. Our commitment to precision engineering and continuous innovation has made us a trusted partner for military contractors across 40+ countries.",
+        "certifications": [
+            {
+                "id": "cert1",
+                "name": "ISO 9001",
+                "image": ""
+            },
+            {
+                "id": "cert2",
+                "name": "ISO 14001",
+                "image": ""
+            },
+            {
+                "id": "cert3",
+                "name": "MIL-SPEC",
+                "image": ""
+            },
+            {
+                "id": "cert4",
+                "name": "NATO Qualified",
+                "image": ""
+            }
+        ]
+    },
+    "blog": {
+        "title": "News & Insights",
+        "subtitle": "Latest industry updates and technical articles"
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "subtitle": "Contact our team for inquiries and quotes",
+        "email": "info@stitchtech.com",
+        "phone": "+86-755-1234-5678",
+        "whatsapp": "+86-138-0000-0000",
+        "address": "High-Tech Industrial Park, Shenzhen, Guangdong, China"
+    }
+}

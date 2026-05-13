@@ -1,0 +1,69 @@
+{
+    "banner": {
+        "title": "国防级精密缝制技术",
+        "subtitle": "军工品质缝制装备 — 全球防务承包商信赖之选",
+        "cta_text": "获取报价",
+        "cta_link": "/cn/contact",
+        "background_image": "",
+        "background_video": ""
+    },
+    "products": {
+        "title": "核心产品分类",
+        "subtitle": "面向国防与工业应用的专业解决方案",
+        "items": [
+            {"id": "p1",  "name": "战术缝制系统",     "menu_subtitle": "军用纺织品生产",     "desc": "专为军用纺织品生产设计的高性能缝制装备", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p2",  "name": "工业缝纫设备",     "menu_subtitle": "防弹织物加工",       "desc": "适用于防弹织物和复合材料加工的重型设备", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p3",  "name": "智能自动化",       "menu_subtitle": "AI质量检测",         "desc": "AI驱动的质量检测与自动化生产线", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p4",  "name": "定制方案",         "menu_subtitle": "特种国防工程",       "desc": "针对特种国防制造需求的定制工程服务", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p5",  "name": "线束系统",         "menu_subtitle": "线缆组装",           "desc": "国防通信系统精密线束解决方案", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p6",  "name": "射频屏蔽",         "menu_subtitle": "EMI/RFI防护",        "desc": "军用敏感电子设备射频屏蔽方案", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p7",  "name": "热管理",           "menu_subtitle": "散热系统",           "desc": "大功率国防系统先进热管理方案", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p8",  "name": "密封方案",         "menu_subtitle": "环境防护",           "desc": "恶劣环境军用设备密封方案", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p9",  "name": "复合粘接",         "menu_subtitle": "结构胶粘",           "desc": "航空航天高强度复合粘接方案", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p10", "name": "光学组装",         "menu_subtitle": "精密光学",           "desc": "瞄准与监视系统精密光学组装", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p11", "name": "配电系统",         "menu_subtitle": "军标电源",           "desc": "野外作战加固配电系统", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p12", "name": "传感器集成",       "menu_subtitle": "多传感系统",         "desc": "态势感知集成传感器方案", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p13", "name": "EMI滤波",          "menu_subtitle": "电磁兼容",           "desc": "军用通信设备EMI滤波方案", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p14", "name": "隔振系统",         "menu_subtitle": "抗冲击减振",         "desc": "加固电子设备隔振系统", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p15", "name": "机柜系统",         "menu_subtitle": "加固机柜",           "desc": "IP67防护等级野外部署机柜", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true},
+            {"id": "p16", "name": "连接器方案",       "menu_subtitle": "军用连接器",         "desc": "MIL-DTL认证连接器方案", "image": "", "menu_thumbnail": "", "link": "/cn/product", "show_in_menu": true}
+        ]
+    },
+    "factory": {
+        "title": "工厂与实力",
+        "subtitle": "先进制造工艺与严格质量控制",
+        "content": "我们5万平方米的工厂拥有先进的研发实验室、洁净生产环境和完善的检测设备。拥有200多名工程师和ISO 9001认证流程，我们提供满足最严苛军工标准的精密工程解决方案。",
+        "images": []
+    },
+    "cases": {
+        "title": "应用与解决方案",
+        "subtitle": "在国防与工业领域的成熟应用",
+        "items": [
+            {"id": "c1", "title": "防弹衣生产", "desc": "多层防弹衣制造的完整缝制解决方案", "image": "", "slug": ""},
+            {"id": "c2", "title": "军用帐篷系统", "desc": "野战部署庇护所的自动化生产线", "image": "", "slug": ""},
+            {"id": "c3", "title": "航空航天复合材料", "desc": "轻量化复合结构件的精密缝制", "image": "", "slug": ""}
+        ]
+    },
+    "about": {
+        "title": "关于Stitch Tech",
+        "content": "Stitch Tech成立于2008年，从专业的缝纫机制造商成长为综合性的国防技术提供商。我们对精密工程和持续创新的承诺，使我们成为40多个国家军工承包商的信赖伙伴。",
+        "certifications": [
+            {"id": "cert1", "name": "ISO 9001", "image": ""},
+            {"id": "cert2", "name": "ISO 14001", "image": ""},
+            {"id": "cert3", "name": "国军标", "image": ""},
+            {"id": "cert4", "name": "NATO认证", "image": ""}
+        ]
+    },
+    "blog": {
+        "title": "新闻与洞察",
+        "subtitle": "最新行业动态与技术文章"
+    },
+    "contact": {
+        "title": "联系我们",
+        "subtitle": "联系我们的团队获取询盘和报价",
+        "email": "info@stitchtech.com",
+        "phone": "+86-755-1234-5678",
+        "whatsapp": "+86-138-0000-0000",
+        "address": "中国广东省深圳市高新科技产业园"
+    }
+}

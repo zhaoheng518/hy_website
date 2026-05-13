@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Nexus Core 8 处理器",
+        "slug": "nexus-core-8-processor",
+        "desc": "专为企业级应用设计的高性能处理器，为高要求的B2B工作负载提供卓越的速度和可靠性。",
+        "image": "",
+        "seo_title": "Nexus Core 8 处理器 - Stitch Tech",
+        "seo_desc": "了解Nexus Core 8处理器 — 为高要求B2B工作负载打造的企业级性能。"
+    },
+    {
+        "name": "OpticLink 节点",
+        "slug": "opticlink-node",
+        "desc": "先进的光网络节点，为关键业务基础设施提供超低延迟连接。",
+        "image": "",
+        "seo_title": "OpticLink 节点 - Stitch Tech",
+        "seo_desc": "探索OpticLink节点 — 为企业基础设施提供超低延迟光网络连接。"
+    },
+    {
+        "name": "SignalFlow 监控器",
+        "slug": "signalflow-monitor",
+        "desc": "配备AI驱动分析的实时信号监控系统，实现主动式基础设施管理。",
+        "image": "",
+        "seo_title": "SignalFlow 监控器 - Stitch Tech",
+        "seo_desc": "了解SignalFlow监控器 — AI驱动的企业级实时信号监控。"
+    }
+]

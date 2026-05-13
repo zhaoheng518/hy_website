@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Sistemas de Costura Táctica",
+        "slug": "tactical-stitching-systems",
+        "description": "Equipo de costura de alto rendimiento diseñado para la producción textil militar",
+        "image": ""
+    },
+    {
+        "name": "Máquinas de Coser Industriales",
+        "slug": "industrial-sewing-machines",
+        "description": "Máquinas pesadas para telas balísticas y materiales compuestos",
+        "image": ""
+    },
+    {
+        "name": "Automatización Inteligente",
+        "slug": "smart-automation",
+        "description": "Inspección de calidad con IA y líneas de producción automatizadas",
+        "image": ""
+    },
+    {
+        "name": "Soluciones Personalizadas",
+        "slug": "custom-solutions",
+        "description": "Ingeniería a medida para necesidades de fabricación de defensa especializada",
+        "image": ""
+    }
+]

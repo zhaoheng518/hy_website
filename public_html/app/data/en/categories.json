@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Tactical Stitching Systems",
+        "slug": "tactical-stitching-systems",
+        "description": "High-performance stitching equipment designed for military textile production",
+        "image": ""
+    },
+    {
+        "name": "Industrial Sewing Machines",
+        "slug": "industrial-sewing-machines",
+        "description": "Heavy-duty machines for ballistic fabric and composite materials",
+        "image": ""
+    },
+    {
+        "name": "Smart Automation",
+        "slug": "smart-automation",
+        "description": "AI-powered quality inspection and automated production lines",
+        "image": ""
+    },
+    {
+        "name": "Custom Solutions",
+        "slug": "custom-solutions",
+        "description": "Tailored engineering for specialized defense manufacturing needs",
+        "image": ""
+    }
+]

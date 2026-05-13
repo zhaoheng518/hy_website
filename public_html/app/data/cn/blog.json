@@ -1,0 +1,22 @@
+[
+    {
+        "title": "算法市场中的编辑准确性演变",
+        "slug": "evolution-editorial-accuracy-algorithmic-markets",
+        "desc": "深入分析算法交易如何重塑金融市场的编辑标准。",
+        "content": "<p>算法交易与编辑标准的交叉点代表了过去十年金融市场基础设施最重要的转变之一。</p><p>随着自动化系统日益驱动市场决策，对准确、及时和可靠的编辑内容的需求前所未有。</p><p>本文探讨了B2B利益相关者的关键趋势和影响。</p>",
+        "image": "",
+        "date": "2024-12-15",
+        "seo_title": "算法市场中的编辑准确性 - Stitch Tech 博客",
+        "seo_desc": "探索算法交易如何重塑金融市场的编辑标准。"
+    },
+    {
+        "title": "SaaS中的编辑工作流扩展",
+        "slug": "scaling-editorial-workflows-saas",
+        "desc": "在现代SaaS平台中构建可扩展编辑工作流的最佳实践。",
+        "content": "<p>随着SaaS平台的增长，编辑工作流必须相应扩展，以在所有内容接触点保持质量和一致性。</p><p>本指南涵盖了构建与平台共同成长的稳健、可扩展编辑流程的成熟策略。</p>",
+        "image": "",
+        "date": "2024-11-20",
+        "seo_title": "SaaS编辑工作流扩展 - Stitch Tech 博客",
+        "seo_desc": "了解在SaaS平台中构建可扩展编辑工作流的最佳实践。"
+    }
+]

@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Nexus Core 8 Processor",
+        "slug": "nexus-core-8-processor",
+        "desc": "High-performance processor designed for enterprise-grade applications, delivering exceptional speed and reliability for demanding B2B workloads.",
+        "short_desc": "Enterprise-grade processor for demanding workloads",
+        "images": [
+            {"url": "", "alt_text": "Nexus Core 8 Processor front view", "is_main": true},
+            {"url": "", "alt_text": "Nexus Core 8 Processor side view", "is_main": false},
+            {"url": "", "alt_text": "Nexus Core 8 Processor board detail", "is_main": false}
+        ],
+        "specs": [
+            {"label": "Operating Voltage", "value": "3.3V - 5V"},
+            {"label": "Operating Temperature", "value": "-40°C to +85°C"},
+            {"label": "Processing Cores", "value": "8"},
+            {"label": "Clock Speed", "value": "2.4 GHz"}
+        ],
+        "datasheet": "",
+        "content": "<h2>Technical Specifications</h2><p>The Nexus Core 8 Processor delivers exceptional performance for enterprise applications. With 8 processing cores and advanced thermal management, it handles the most demanding B2B workloads with ease.</p><h2>Applications</h2><ul><li>Data center infrastructure</li><li>Industrial automation</li><li>Defense communication systems</li></ul>",
+        "seo_title": "Nexus Core 8 Processor - Stitch Tech",
+        "seo_desc": "Discover the Nexus Core 8 Processor — enterprise-grade performance for demanding B2B workloads."
+    },
+    {
+        "name": "OpticLink Node",
+        "slug": "opticlink-node",
+        "desc": "Advanced optical networking node providing ultra-low latency connectivity for mission-critical business infrastructure.",
+        "short_desc": "Ultra-low latency optical networking",
+        "images": [
+            {"url": "", "alt_text": "OpticLink Node front panel", "is_main": true},
+            {"url": "", "alt_text": "OpticLink Node rear connections", "is_main": false}
+        ],
+        "specs": [
+            {"label": "Latency", "value": "< 0.5ms"},
+            {"label": "Bandwidth", "value": "100 Gbps"},
+            {"label": "Interface", "value": "QSFP28"},
+            {"label": "Operating Temperature", "value": "-20°C to +70°C"}
+        ],
+        "datasheet": "",
+        "content": "<h2>Technical Specifications</h2><p>The OpticLink Node provides ultra-low latency optical networking for mission-critical enterprise infrastructure.</p>",
+        "seo_title": "OpticLink Node - Stitch Tech",
+        "seo_desc": "Explore the OpticLink Node — ultra-low latency optical networking for enterprise infrastructure."
+    },
+    {
+        "name": "SignalFlow Monitor",
+        "slug": "signalflow-monitor",
+        "desc": "Real-time signal monitoring system with AI-powered analytics for proactive infrastructure management.",
+        "short_desc": "AI-powered real-time signal monitoring",
+        "images": [
+            {"url": "", "alt_text": "SignalFlow Monitor display", "is_main": true}
+        ],
+        "specs": [
+            {"label": "Frequency Range", "value": "1 MHz - 6 GHz"},
+            {"label": "Analysis Channels", "value": "16"},
+            {"label": "AI Engine", "value": "Built-in Neural Processing"},
+            {"label": "Display", "value": "15 inch Touchscreen"}
+        ],
+        "datasheet": "",
+        "content": "<h2>Technical Specifications</h2><p>The SignalFlow Monitor combines real-time signal analysis with AI-powered anomaly detection.</p>",
+        "seo_title": "SignalFlow Monitor - Stitch Tech",
+        "seo_desc": "Learn about the SignalFlow Monitor — AI-powered real-time signal monitoring for enterprise."
+    }
+]

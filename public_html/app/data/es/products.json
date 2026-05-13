@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Procesador Nexus Core 8",
+        "slug": "nexus-core-8-processor",
+        "desc": "Procesador de alto rendimiento diseñado para aplicaciones empresariales, ofreciendo velocidad y fiabilidad excepcionales para cargas de trabajo B2B exigentes.",
+        "image": "",
+        "seo_title": "Procesador Nexus Core 8 - Stitch Tech",
+        "seo_desc": "Descubra el Procesador Nexus Core 8 — rendimiento empresarial para cargas de trabajo B2B exigentes."
+    },
+    {
+        "name": "Nodo OpticLink",
+        "slug": "opticlink-node",
+        "desc": "Nodo de red óptica avanzada que proporciona conectividad de ultra baja latencia para infraestructuras empresariales críticas.",
+        "image": "",
+        "seo_title": "Nodo OpticLink - Stitch Tech",
+        "seo_desc": "Explore el Nodo OpticLink — red óptica de ultra baja latencia para infraestructura empresarial."
+    },
+    {
+        "name": "Monitor SignalFlow",
+        "slug": "signalflow-monitor",
+        "desc": "Sistema de monitoreo de señales en tiempo real con análisis impulsado por IA para gestión proactiva de infraestructura.",
+        "image": "",
+        "seo_title": "Monitor SignalFlow - Stitch Tech",
+        "seo_desc": "Conozca el Monitor SignalFlow — monitoreo de señales en tiempo real con IA para empresas."
+    }
+]

@@ -1,0 +1,99 @@
+{
+    "banner": {
+        "title": "Ingeniería de Precisión para Defensa e Industria",
+        "subtitle": "Tecnología de costura de grado militar — confianza de contratistas de defensa en todo el mundo",
+        "cta_text": "Solicitar Cotización",
+        "cta_link": "/es/contact",
+        "background_image": "",
+        "background_video": ""
+    },
+    "products": {
+        "title": "Categorías de Productos",
+        "subtitle": "Soluciones especializadas para defensa y aplicaciones industriales",
+        "items": [
+            {
+                "id": "p1",
+                "name": "Sistemas de Costura Táctica",
+                "desc": "Equipo de costura de alto rendimiento para producción textil militar",
+                "image": "",
+                "link": "/es/product"
+            },
+            {
+                "id": "p2",
+                "name": "Máquinas Industriales",
+                "desc": "Maquinaria pesada para telas balísticas y materiales compuestos",
+                "image": "",
+                "link": "/es/product"
+            },
+            {
+                "id": "p3",
+                "name": "Automatización Inteligente",
+                "desc": "Inspección de calidad con IA y líneas de producción automatizadas",
+                "image": "",
+                "link": "/es/product"
+            },
+            {
+                "id": "p4",
+                "name": "Soluciones Personalizadas",
+                "desc": "Ingeniería a medida para necesidades de fabricación de defensa",
+                "image": "",
+                "link": "/es/product"
+            }
+        ]
+    },
+    "factory": {
+        "title": "Fábrica y Capacidades",
+        "subtitle": "Fabricación de vanguardia con control de calidad riguroso",
+        "content": "Nuestra instalación de 50,000 m² alberga laboratorios de I+D avanzados, entornos de producción en sala limpia y equipos de prueba completos. Con más de 200 ingenieros y procesos certificados ISO 9001, ofrecemos soluciones de ingeniería de precisión que cumplen las especificaciones militares más exigentes.",
+        "images": []
+    },
+    "cases": {
+        "title": "Aplicaciones y Soluciones",
+        "subtitle": "Rendimiento probado en sectores de defensa e industria",
+        "items": [
+            {
+                "id": "c1",
+                "title": "Producción de Chalecos Antibalas",
+                "desc": "Solución completa de costura para fabricación de chalecos multicapa",
+                "image": "",
+                "slug": ""
+            },
+            {
+                "id": "c2",
+                "title": "Sistemas de Tiendas Militares",
+                "desc": "Línea de producción automatizada para sistemas de refugio desplegables",
+                "image": "",
+                "slug": ""
+            },
+            {
+                "id": "c3",
+                "title": "Compuestos Aeroespaciales",
+                "desc": "Costura de precisión para componentes estructurales compuestos ligeros",
+                "image": "",
+                "slug": ""
+            }
+        ]
+    },
+    "about": {
+        "title": "Sobre Stitch Tech",
+        "content": "Fundada en 2008, Stitch Tech ha crecido de fabricante especializado de máquinas de coser a proveedor integral de tecnología de defensa. Nuestro compromiso con la ingeniería de precisión y la innovación continua nos ha convertido en un socio de confianza para contratistas militares en más de 40 países.",
+        "certifications": [
+            {"id": "cert1", "name": "ISO 9001", "image": ""},
+            {"id": "cert2", "name": "ISO 14001", "image": ""},
+            {"id": "cert3", "name": "MIL-SPEC", "image": ""},
+            {"id": "cert4", "name": "NATO Cualificado", "image": ""}
+        ]
+    },
+    "blog": {
+        "title": "Noticias e Insights",
+        "subtitle": "Últimas actualizaciones de la industria y artículos técnicos"
+    },
+    "contact": {
+        "title": "Contáctenos",
+        "subtitle": "Contacte a nuestro equipo para consultas y cotizaciones",
+        "email": "info@stitchtech.com",
+        "phone": "+86-755-1234-5678",
+        "whatsapp": "+86-138-0000-0000",
+        "address": "Parque Industrial de Alta Tecnología, Shenzhen, Guangdong, China"
+    }
+}

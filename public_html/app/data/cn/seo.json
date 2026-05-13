@@ -1,0 +1,26 @@
+{
+    "home": {
+        "title": "Stitch Tech - 专业B2B解决方案",
+        "description": "领先的B2B解决方案提供商，为全球企业交付优质产品和创新解决方案。"
+    },
+    "products": {
+        "title": "产品中心 - Stitch Tech",
+        "description": "探索我们全面的专业B2B产品系列，为企业成功而设计。"
+    },
+    "about": {
+        "title": "关于我们 - Stitch Tech",
+        "description": "了解我们的公司、使命以及对交付优质B2B解决方案的承诺。"
+    },
+    "cases": {
+        "title": "客户案例 - Stitch Tech",
+        "description": "发现我们成功的B2B案例，了解我们如何帮助企业转型。"
+    },
+    "blog": {
+        "title": "博客 - Stitch Tech",
+        "description": "来自Stitch Tech团队的最新新闻、洞察和行业分析。"
+    },
+    "contact": {
+        "title": "联系我们 - Stitch Tech",
+        "description": "与我们的团队取得联系，获取B2B询价、报价和合作机会。"
+    }
+}

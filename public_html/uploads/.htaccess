@@ -1,0 +1,68 @@
+# ============================================================
+# uploads/.htaccess — Upload Directory Hardening
+# ============================================================
+# PURPOSE: Serve static assets only. Absolutely no script
+#          execution, no directory listing, no PHP or any
+#          other server-side handler.
+#
+# Compatible with: Apache 2.2/2.4 + mod_php, mod_fcgi, PHP-FPM,
+#                  LiteSpeed (LSAPI), OpenLiteSpeed.
+# ============================================================
+
+# --- 1. Disable directory listing ---
+Options -Indexes -ExecCGI
+
+# --- 2. Remove handlers that could execute server-side scripts ---
+# Covers mod_php, mod_cgid, mod_cgi, FastCGI wrappers.
+RemoveHandler .php .php3 .php4 .php5 .php7 .php8 .phtml .phar
+RemoveHandler .pl .py .rb .cgi .sh .asp .aspx .jsp .jspa
+RemoveHandler .html .htm .shtml .svg .xml .js .mjs
+RemoveType application/x-httpd-php
+RemoveType application/x-httpd-php-source
+RemoveType text/html
+RemoveType image/svg+xml
+
+# --- 3. Disable PHP engine (mod_php / LiteSpeed PHP) ---
+<IfModule mod_php5.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+# LiteSpeed LSAPI
+<IfModule lsapi_module>
+    php_flag engine off
+</IfModule>
+
+# --- 4. Deny access to any file with a script/executable extension ---
+# This is the primary defence: deny before any handler can fire.
+<FilesMatch "(?i)\.(ph(?:p[3-8]?|t(?:ml)?|ar)|phtml|[jp]sp[ax]?|a[sp]px?|cgi|pl|py|rb|sh|bash|ksh|html?|s?html|xhtml|svg|xml|js|mjs|cjs|htaccess|htpasswd|exe|dll|so|bat|cmd|vbs|wsf|jar|cfm)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# --- 5. Force all responses to be treated as download / opaque data ---
+# Prevents browsers from interpreting any uploaded file as active content.
+<IfModule mod_headers.c>
+    # Strict Content-Security-Policy: no scripts, no frames, no external resources.
+    Header set Content-Security-Policy "default-src 'none'; img-src 'self'; style-src 'none'; script-src 'none'"
+    # Prevent MIME-type sniffing (stops IE/Chrome guessing "text/html" for PNG etc.)
+    Header set X-Content-Type-Options "nosniff"
+    # Cache control for legitimate static assets
+    Header set Cache-Control "public, max-age=86400"
+    Header unset ETag
+</IfModule>
+<IfModule LiteSpeed>
+    CacheModify max-age=86400
+</IfModule>

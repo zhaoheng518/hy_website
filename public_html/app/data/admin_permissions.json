@@ -1,0 +1,22 @@
+{
+    "1": {
+        "dashboard": "rw",
+        "products": "rw",
+        "categories": "rw",
+        "pages": "rw",
+        "blog": "rw",
+        "cases": "rw",
+        "home": "rw",
+        "inquiries": "rw",
+        "newsletter": "rw",
+        "media": "rw",
+        "files": "rw",
+        "menu": "rw",
+        "seo": "rw",
+        "languages": "rw",
+        "settings": "rw",
+        "users": "rw",
+        "sections": "rw",
+        "redirects": "rw"
+    }
+}

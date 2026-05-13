@@ -1,0 +1,29 @@
+[
+    {
+        "title": "Fábrica y Capacidades",
+        "slug": "factory",
+        "subtitle": "Fabricación de vanguardia con control de calidad riguroso",
+        "featured_image": "",
+        "content": "<h2>Nuestra Instalación</h2><p>Nuestra instalación de 50,000 m² alberga laboratorios de I+D avanzados, entornos de producción en sala limpia y equipos de prueba integrales. Con más de 200 ingenieros y procesos certificados ISO 9001, entregamos soluciones de ingeniería de precisión que cumplen con las especificaciones militares más exigentes.</p><h2>Aseguramiento de Calidad</h2><p>Cada producto se somete a pruebas e inspecciones rigurosas antes de salir de nuestra instalación, garantizando el cumplimiento de las normas MIL-SPEC e internacionales de calidad.</p>",
+        "seo_title": "Fábrica y Capacidades - Stitch Tech",
+        "seo_description": "Explore la instalación de fabricación de vanguardia de Stitch Tech, laboratorios de I+D y procesos de calidad certificados ISO 9001."
+    },
+    {
+        "title": "Sobre Nosotros",
+        "slug": "about",
+        "subtitle": "Ingeniería de precisión confiable por contratistas de defensa en todo el mundo",
+        "featured_image": "",
+        "content": "<h2>Nuestra Historia</h2><p>Fundada en 2008, Stitch Tech ha crecido de un fabricante especializado de máquinas de coser a un proveedor integral de tecnología de defensa. Nuestro compromiso con la ingeniería de precisión y la innovación continua nos ha convertido en un socio de confianza para contratistas militares en más de 40 países.</p><h2>Nuestra Misión</h2><p>Entregar soluciones de ingeniería de precisión que cumplan con las especificaciones militares más exigentes, empoderando a contratistas de defensa en todo el mundo con tecnología confiable y de vanguardia.</p><h2>Certificaciones</h2><ul><li>ISO 9001 Gestión de Calidad</li><li>ISO 14001 Gestión Ambiental</li><li>Cumplimiento MIL-SPEC</li><li>Proveedor Calificado NATO</li></ul>",
+        "seo_title": "Sobre Stitch Tech - Proveedor de Tecnología de Defensa",
+        "seo_description": "Conozca el viaje de Stitch Tech de fabricante especializado a proveedor integral de tecnología de defensa que sirve a más de 40 países."
+    },
+    {
+        "title": "Casos de Éxito",
+        "slug": "cases",
+        "subtitle": "Rendimiento probado en sectores de defensa e industriales",
+        "featured_image": "",
+        "content": "<h2>Aplicaciones y Soluciones</h2><p>Nuestros productos y soluciones se han implementado en una amplia gama de aplicaciones de defensa e industriales, desde la producción de chalecos antibalas hasta la fabricación de compuestos aeroespaciales.</p>",
+        "seo_title": "Casos de Éxito - Stitch Tech",
+        "seo_description": "Descubra cómo las soluciones de Stitch Tech se aplican en sectores de defensa e industriales en todo el mundo."
+    }
+]

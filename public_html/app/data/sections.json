@@ -1,0 +1,10 @@
+{
+    "sections": [
+        {"type": "banner", "enabled": true, "order": 1},
+        {"type": "products", "enabled": true, "order": 2},
+        {"type": "cases", "enabled": true, "order": 3},
+        {"type": "about", "enabled": true, "order": 4},
+        {"type": "blog", "enabled": true, "order": 5},
+        {"type": "contact", "enabled": true, "order": 6}
+    ]
+}

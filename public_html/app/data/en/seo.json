@@ -1,0 +1,26 @@
+{
+    "home": {
+        "title": "Stitch Tech - Professional B2B Solutions",
+        "description": "Leading B2B solution provider delivering quality products and innovative solutions to businesses worldwide."
+    },
+    "products": {
+        "title": "Our Products - Stitch Tech",
+        "description": "Explore our comprehensive range of professional B2B products designed for enterprise success."
+    },
+    "about": {
+        "title": "About Us - Stitch Tech",
+        "description": "Learn about our company, our mission, and our commitment to delivering quality B2B solutions."
+    },
+    "cases": {
+        "title": "Case Studies - Stitch Tech",
+        "description": "Discover our successful B2B case studies and see how we help businesses transform."
+    },
+    "blog": {
+        "title": "Blog - Stitch Tech",
+        "description": "Latest news, insights, and industry analysis from the Stitch Tech team."
+    },
+    "contact": {
+        "title": "Contact Us - Stitch Tech",
+        "description": "Get in touch with our team for B2B inquiries, quotes, and partnership opportunities."
+    }
+}

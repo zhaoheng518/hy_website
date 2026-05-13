@@ -1,0 +1,22 @@
+[
+    {
+        "title": "The Evolution of Editorial Accuracy in Algorithmic Markets",
+        "slug": "evolution-editorial-accuracy-algorithmic-markets",
+        "desc": "An in-depth analysis of how algorithmic trading has reshaped editorial standards in financial markets.",
+        "content": "<p>The intersection of algorithmic trading and editorial standards represents one of the most significant shifts in financial market infrastructure over the past decade.</p><p>As automated systems increasingly drive market decisions, the need for accurate, timely, and reliable editorial content has never been greater.</p><p>This article explores the key trends and implications for B2B stakeholders.</p>",
+        "image": "",
+        "date": "2024-12-15",
+        "seo_title": "Editorial Accuracy in Algorithmic Markets - Stitch Tech Blog",
+        "seo_desc": "Explore how algorithmic trading has reshaped editorial standards in financial markets."
+    },
+    {
+        "title": "Scaling Editorial Workflows in SaaS",
+        "slug": "scaling-editorial-workflows-saas",
+        "desc": "Best practices for building scalable editorial workflows in modern SaaS platforms.",
+        "content": "<p>As SaaS platforms grow, editorial workflows must scale accordingly to maintain quality and consistency across all content touchpoints.</p><p>This guide covers proven strategies for building robust, scalable editorial processes that grow with your platform.</p>",
+        "image": "",
+        "date": "2024-11-20",
+        "seo_title": "Scaling Editorial Workflows in SaaS - Stitch Tech Blog",
+        "seo_desc": "Learn best practices for building scalable editorial workflows in SaaS platforms."
+    }
+]

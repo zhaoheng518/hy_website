@@ -1,0 +1,26 @@
+[
+    {
+        "name": "战术缝合系统",
+        "slug": "tactical-stitching-systems",
+        "description": "专为军工纺织品生产设计的高性能缝合设备",
+        "image": ""
+    },
+    {
+        "name": "工业缝纫机",
+        "slug": "industrial-sewing-machines",
+        "description": "用于弹道织物和复合材料加工的重型设备",
+        "image": ""
+    },
+    {
+        "name": "智能自动化",
+        "slug": "smart-automation",
+        "description": "AI驱动的质量检测和自动化生产线",
+        "image": ""
+    },
+    {
+        "name": "定制方案",
+        "slug": "custom-solutions",
+        "description": "为特殊防务制造需求量身定制的工程方案",
+        "image": ""
+    }
+]
