@@ -1,1 +1,128 @@
-[]
+[
+    {
+        "url": "\/en\/.well-known\/appspecific\/com.chrome.devtools.json",
+        "count": 6,
+        "first_seen": "2026-05-14 03:36:29",
+        "last_seen": "2026-05-14 07:08:28",
+        "last_referrer": "",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/en\/favicon.ico",
+        "count": 3,
+        "first_seen": "2026-05-14 03:36:37",
+        "last_seen": "2026-05-14 07:08:31",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/seo",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/forms",
+        "count": 2,
+        "first_seen": "2026-05-14 03:34:35",
+        "last_seen": "2026-05-14 07:12:41",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/newsletter",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/routes",
+        "count": 1,
+        "first_seen": "2026-05-14 03:08:49",
+        "last_seen": "2026-05-14 03:08:49",
+        "last_referrer": "http:\/\/localhost:8888\/admin",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/sql-monitor",
+        "count": 1,
+        "first_seen": "2026-05-14 03:08:55",
+        "last_seen": "2026-05-14 03:08:55",
+        "last_referrer": "http:\/\/localhost:8888\/admin",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/api-tokens",
+        "count": 1,
+        "first_seen": "2026-05-14 03:09:53",
+        "last_seen": "2026-05-14 03:09:53",
+        "last_referrer": "http:\/\/localhost:8888\/admin",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/meta-template",
+        "count": 1,
+        "first_seen": "2026-05-14 03:34:25",
+        "last_seen": "2026-05-14 03:34:25",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/seo",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/sitemap",
+        "count": 1,
+        "first_seen": "2026-05-14 03:34:27",
+        "last_seen": "2026-05-14 03:34:27",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/seo",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/schema",
+        "count": 1,
+        "first_seen": "2026-05-14 03:34:29",
+        "last_seen": "2026-05-14 03:34:29",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/seo",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/image-compress",
+        "count": 1,
+        "first_seen": "2026-05-14 03:34:46",
+        "last_seen": "2026-05-14 03:34:46",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/media",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/logs",
+        "count": 1,
+        "first_seen": "2026-05-14 06:39:53",
+        "last_seen": "2026-05-14 06:39:53",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/backup",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/cache",
+        "count": 1,
+        "first_seen": "2026-05-14 06:39:59",
+        "last_seen": "2026-05-14 06:39:59",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/users",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/whatsapp",
+        "count": 1,
+        "first_seen": "2026-05-14 07:12:45",
+        "last_seen": "2026-05-14 07:12:45",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/newsletter",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    },
+    {
+        "url": "\/admin\/crm",
+        "count": 1,
+        "first_seen": "2026-05-14 07:12:47",
+        "last_seen": "2026-05-14 07:12:47",
+        "last_referrer": "http:\/\/localhost:8888\/admin\/newsletter",
+        "last_ip": "::1",
+        "last_ua": "Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/148.0.0.0 Safari\/537.36"
+    }
+]

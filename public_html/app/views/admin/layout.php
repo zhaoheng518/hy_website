@@ -61,198 +61,12 @@ $canNav = static function (string $perm): bool {
                 </div>
             </div>
 
-            <!-- 主导航（独立滚动；scroll 位置由底部脚本写入 sessionStorage 恢复） -->
+            <!-- 主导航（数据库 + AdminMenuService；折叠脚本见底部） -->
             <nav id="admin-sidebar-nav" class="flex-1 min-h-0 overflow-y-auto overscroll-y-contain py-4">
-                <div class="px-3 mb-2">
-                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">主菜单</span>
-                </div>
-                <?php if ($canNav('dashboard')): ?>
-                <a href="/admin" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'dashboard' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                    </svg>
-                    <span>仪表盘</span>
-                </a>
+                <?php if (!empty($adminSidebarError ?? '')): ?>
+                    <div class="px-5 py-3 text-xs text-red-300"><?php echo View::e($adminSidebarError); ?></div>
                 <?php endif; ?>
-
-                <!-- 首页管理 -->
-                <?php if ($canNav('home')): ?>
-                <div class="px-3 mt-4 mb-2">
-                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">首页管理</span>
-                </div>
-                <a href="/admin/home/banner" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'home_banner' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    <span>横幅设置</span>
-                </a>
-                <a href="/admin/home/products" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'home_products' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                    </svg>
-                    <span>产品展示</span>
-                </a>
-                <a href="/admin/home/factory" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'home_factory' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                    </svg>
-                    <span>工厂介绍</span>
-                </a>
-                <a href="/admin/home/cases" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'home_cases' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                    </svg>
-                    <span>成功案例</span>
-                </a>
-                <a href="/admin/home/about" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'home_about' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <span>关于我们</span>
-                </a>
-                <a href="/admin/home/blog" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'home_blog' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
-                    </svg>
-                    <span>博客新闻</span>
-                </a>
-                <a href="/admin/home/contact" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'home_contact' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                    <span>联系信息</span>
-                </a>
-                <?php endif; ?>
-
-                <!-- 产品管理 -->
-                <div class="px-3 mt-4 mb-2">
-                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">内容管理</span>
-                </div>
-                <?php if ($canNav('products')): ?>
-                <a href="/admin/products" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'products' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                    </svg>
-                    <span>产品管理</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('categories')): ?>
-                <a href="/admin/categories" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'categories' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
-                    </svg>
-                    <span>产品分类</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('pages')): ?>
-                <a href="/admin/pages" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'pages' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
-                    <span>页面管理</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('pages')): ?>
-                <a href="/admin/page" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'page_cms' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
-                    <span>页面 CMS</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('blog')): ?>
-                <a href="/admin/blog" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo in_array(($activeMenu ?? ''), ['blog', 'home_blog'], true) ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
-                    <span>博客管理</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('cases')): ?>
-                <a href="/admin/case" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo in_array(($activeMenu ?? ''), ['cases_admin', 'case', 'home_cases'], true) ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-                    <span>案例管理</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('inquiries')): ?>
-                <a href="/admin/inquiries" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'inquiries' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
-                    </svg>
-                    <span>询盘中心</span>
-                    <?php if (isset($unreadInquiries) && $unreadInquiries > 0): ?>
-                        <span class="ms-auto bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full"><?php echo $unreadInquiries; ?></span>
-                    <?php endif; ?>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('newsletter')): ?>
-                <a href="/admin/newsletter" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'newsletter' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    <span>邮件订阅</span>
-                </a>
-                <?php endif; ?>
-
-                <!-- 系统设置 -->
-                <div class="px-3 mt-4 mb-2">
-                    <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">系统</span>
-                </div>
-                <?php if ($canNav('media')): ?>
-                <a href="/admin/media" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'media' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    <span>媒体库</span>
-                </a>
-                <a href="/admin/files" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'files' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                    <span>文件管理</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('menu')): ?>
-                <a href="/admin/menu" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'menu' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    <span>菜单</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('seo')): ?>
-                <a href="/admin/seo" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'seo' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                    <span>SEO 总控</span>
-                </a>
-                <a href="/admin/seo/audit" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'seo_audit' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 8l2 2 4-4"></path></svg>
-                    <span>SEO 健康检查</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('settings')): ?>
-                <a href="/admin/404monitor" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === '404monitor' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
-                    <span>404 监控</span>
-                </a>
-                <a href="/admin/redirects" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'redirects' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10M7 12h7m-7 5h10M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"></path></svg>
-                    <span>301 重定向</span>
-                </a>
-                <a href="/admin/backup" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'backup' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1M8 12l4 4m0 0l4-4m-4 4V4"></path></svg>
-                    <span>备份中心</span>
-                </a>
-                <a href="/admin/settings" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'settings' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    <span>系统设置</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('users')): ?>
-                <a href="/admin/users" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'users' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                    <span>用户权限</span>
-                </a>
-                <?php endif; ?>
-                <?php if ($canNav('languages')): ?>
-                <a href="/admin/languages" class="flex items-center px-5 py-3 hover:bg-slate-800 transition-colors <?php echo ($activeMenu ?? '') === 'languages' ? 'bg-slate-800 border-e-4 border-primary-500' : ''; ?>">
-                    <svg class="w-5 h-5 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1 20l4-9m-4 9l4-9m-4 9H7m4 0h6m-2-4v4M7 13h10"></path></svg>
-                    <span>多语言数据</span>
-                </a>
-                <?php endif; ?>
+                <?php echo $adminSidebarNavHtml ?? ''; ?>
             </nav>
 
             <!-- 底部链接 -->
@@ -497,6 +311,71 @@ $canNav = static function (string $perm): bool {
             });
         })();
     </script>
+    <script>
+    /* 优化后的 Sidebar：单开手风琴 + 点击子菜单不收缩 */
+    (function () {
+        document.addEventListener('DOMContentLoaded', function () {
+            var nav = document.getElementById('admin-sidebar-nav');
+            if (!nav) return;
+
+            nav.addEventListener('click', function (e) {
+                var toggleBtn = e.target.closest('[data-sidebar-toggle]');
+                
+                // === 点击的是折叠按钮（一级菜单）===
+                if (toggleBtn) {
+                    e.preventDefault();
+                    var currentBranch = toggleBtn.closest('.admin-nav-branch');
+                    if (!currentBranch) return;
+
+                    // 关闭其他所有已打开的分支（单开模式）
+                    document.querySelectorAll('.admin-nav-branch.is-open').forEach(function (branch) {
+                        if (branch !== currentBranch) {
+                            branch.classList.remove('is-open');
+                            var otherToggle = branch.querySelector('[data-sidebar-toggle]');
+                            if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+
+                    // 切换当前分支状态
+                    var willOpen = !currentBranch.classList.contains('is-open');
+                    currentBranch.classList.toggle('is-open', willOpen);
+                    toggleBtn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+                    
+                    return;
+                }
+
+                // === 点击的是子菜单链接（链接本身）===
+                var link = e.target.closest('a[href]');
+                if (link && !toggleBtn) {
+                    // 确保点击子菜单时，父级菜单保持打开状态
+                    var parentBranch = link.closest('.admin-nav-branch');
+                    if (parentBranch) {
+                        parentBranch.classList.add('is-open');
+                        var parentToggle = parentBranch.querySelector('[data-sidebar-toggle]');
+                        if (parentToggle) {
+                            parentToggle.setAttribute('aria-expanded', 'true');
+                        }
+                    }
+                }
+            });
+
+            // 在上面的脚本里 DOMContentLoaded 内部最下方加入：
+requestAnimationFrame(() => {
+    const activeLink = nav.querySelector('a[href].active, a.border-primary-500');
+    if (activeLink) {
+        const branch = activeLink.closest('.admin-nav-branch');
+        if (branch) {
+            // 关闭其他
+            document.querySelectorAll('.admin-nav-branch.is-open').forEach(b => {
+                if (b !== branch) b.classList.remove('is-open');
+            });
+            branch.classList.add('is-open');
+        }
+    }
+});
+        });
+    })();
+</script>
     <script src="<?php echo View::cacheBust('js/admin.js'); ?>"></script>
 </body>
 </html>

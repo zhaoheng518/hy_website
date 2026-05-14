@@ -17,6 +17,8 @@ use App\Core\SeoAuditService;
  *   php app/commands/SeoAudit.php --lang=en --type=blog
  *   php app/commands/SeoAudit.php --format=json
  *   php app/commands/SeoAudit.php --lang=cn --type=product --format=json
+ *   php app/commands/SeoAudit.php --limit=200
+ *   php app/commands/SeoAudit.php --lang=en --type=product --limit=100 --format=json
  *
  * Exit codes:
  *   0  No issues found (or only INFO level)
@@ -35,6 +37,8 @@ final class SeoAudit
         $filterLang = self::parseArg($argv, '--lang=', '');
         $filterType = self::parseArg($argv, '--type=', '');
         $format     = self::parseArg($argv, '--format=', 'text');
+        $limitRaw   = self::parseArg($argv, '--limit=', '500');
+        $limit      = max(1, (int) $limitRaw);
 
         $langs = Config::get('supported_langs', ['en', 'cn', 'es']);
 
@@ -50,7 +54,7 @@ final class SeoAudit
         }
 
         $service = new SeoAuditService(DATA_PATH, $langs);
-        $result  = $service->run($filterLang, $filterType);
+        $result  = $service->run($filterLang, $filterType, $limit);
 
         if ($format === 'json') {
             echo json_encode($result, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n";
@@ -82,13 +86,24 @@ final class SeoAudit
         echo "║                       SEO Health Audit Report                           ║\n";
         echo "╚══════════════════════════════════════════════════════════════════════════╝\n";
         echo "\n";
-        echo "Generated  : {$scannedAt}\n";
-        echo "Filter     : lang=" . ($filterLang ?: 'all') . "  type=" . ($filterType ?: 'all') . "\n";
-        echo "Pages      : {$totalPages}\n";
-        echo "Issues     : " . ($summary['total'] ?? 0)
-            . "  (critical=" . ($summary['critical'] ?? 0)
-            . "  warning=" . ($summary['warning'] ?? 0)
-            . "  info=" . ($summary['info'] ?? 0) . ")\n";
+        echo "Generated       : {$scannedAt}\n";
+        echo "Filter          : lang=" . ($filterLang ?: 'all') . "  type=" . ($filterType ?: 'all') . "\n";
+        echo "Scanned Items   : {$totalPages}\n";
+        echo "Total Issues    : " . ($summary['total']    ?? 0) . "\n";
+        echo "  Critical      : " . ($summary['critical'] ?? 0) . "\n";
+        echo "  Warning       : " . ($summary['warning']  ?? 0) . "\n";
+        echo "  Info          : " . ($summary['info']     ?? 0) . "\n";
+        echo "  Missing ALT   : " . ($summary['missing_alt']        ?? 0) . "\n";
+        echo "  Meta ALT Fill : " . ($summary['media_missing_alt']  ?? 0) . "\n";
+        echo "  Missing Dims  : " . ($summary['missing_dimensions']  ?? 0) . "\n";
+        echo "  Non-WebP      : " . ($summary['non_webp_images']     ?? 0) . "\n";
+        echo "  Broken Links  : " . ($summary['broken_links']        ?? 0) . "\n";
+        echo "  Missing OG    : " . ($summary['missing_og_image']    ?? 0) . "\n";
+        echo "  Slug Issues   : " . ($summary['slug_issues']         ?? 0) . "\n";
+        echo "  Security Warn : " . ($summary['security_warnings']   ?? 0) . "\n";
+        if (!empty($summary['robots_blocked'])) {
+            echo "  !! ROBOTS BLOCK ALL IS ON — SITE MAY BE DEINDEXED !!\n";
+        }
         echo "\n";
 
         // Group by severity for cleaner output

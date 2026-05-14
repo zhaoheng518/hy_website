@@ -8,7 +8,7 @@
 
     <?php if ($total === 0): ?>
     <div style="padding:40px;text-align:center;color:#999;">
-        <p>暂无下载记录。确认已执行 <code>20260511_create_download_log.sql</code> 并已有用户通过追踪链接下载文件。</p>
+        <p>暂无下载记录，确认文件已上传并已有用户通过追踪链接下载文件。</p>
     </div>
     <?php else: ?>
 

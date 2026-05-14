@@ -689,7 +689,7 @@ class SEO
     }
 
     /**
-     * Persist sitemap.xml + image-sitemap.xml (same markup as dynamic routes).
+     * Persist partial urlsets under static_cache/sitemaps/ and mirror sitemap index + image at web root.
      */
     public static function writeSitemapToDisk(): void
     {
@@ -697,8 +697,10 @@ class SEO
             return;
         }
         $root = \constant('ROOT_PATH');
-        file_put_contents($root . '/sitemap.xml', self::generateSitemap(), LOCK_EX);
-        file_put_contents($root . '/image-sitemap.xml', self::generateImageSitemap(), LOCK_EX);
+        $bundles = self::materializeSitemapCaches();
+        self::persistSitemapCaches($bundles);
+        file_put_contents($root . '/sitemap.xml', $bundles['index'], LOCK_EX);
+        file_put_contents($root . '/image-sitemap.xml', $bundles['image'], LOCK_EX);
     }
 
     /**
@@ -715,7 +717,74 @@ class SEO
         $xml .= "  </url>\n";
     }
 
-    public static function generateSitemap(): string
+    /** @return array<string, string> filename basename keyed by internal part name */
+    private static function sitemapCacheBasenames(): array
+    {
+        return [
+            'index' => 'sitemap-index.xml',
+            'products' => 'products-sitemap.xml',
+            'blog' => 'blog-sitemap.xml',
+            'pages' => 'pages-sitemap.xml',
+            'image' => 'image-sitemap.xml',
+        ];
+    }
+
+    private static function sitemapCacheDir(): string
+    {
+        if (\defined('ROOT_PATH')) {
+            return \constant('ROOT_PATH') . '/static_cache/sitemaps';
+        }
+
+        return dirname(__DIR__, 2) . '/static_cache/sitemaps';
+    }
+
+    private static function sitemapCachePath(string $part): string
+    {
+        $map = self::sitemapCacheBasenames();
+
+        return self::sitemapCacheDir() . '/' . ($map[$part] ?? '');
+    }
+
+    private static function isSitemapCacheFresh(string $path): bool
+    {
+        if ($path === '' || !is_file($path)) {
+            return false;
+        }
+
+        return (time() - (int) filemtime($path)) <= 86400;
+    }
+
+    private static function allSitemapCachesFresh(): bool
+    {
+        foreach (array_keys(self::sitemapCacheBasenames()) as $part) {
+            if (!self::isSitemapCacheFresh(self::sitemapCachePath((string) $part))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * @param 'index'|'products'|'blog'|'pages'|'image' $part
+     */
+    public static function getSitemapHttpBody(string $part): string
+    {
+        $path = self::sitemapCachePath($part);
+        if ($path !== '' && self::allSitemapCachesFresh()) {
+            $raw = @file_get_contents($path);
+            if ($raw !== false && $raw !== '') {
+                return $raw;
+            }
+        }
+        $bundles = self::materializeSitemapCaches();
+        self::persistSitemapCaches($bundles);
+
+        return $bundles[$part] ?? '';
+    }
+
+    /** @return array<string, string> keys: index, products, blog, pages, image */
+    private static function materializeSitemapCaches(): array
     {
         $siteUrl = rtrim(Config::get('site_url', ''), '/');
         $supportedLangs = Config::get('supported_langs', ['en', 'cn', 'es']);
@@ -723,6 +792,220 @@ class SEO
             $supportedLangs = ['en'];
         }
 
+        $productsUrls = self::collectProductsSitemapUrls($siteUrl, $supportedLangs);
+        $blogUrls = self::collectBlogSitemapUrls($siteUrl, $supportedLangs);
+        $pagesUrls = self::collectPagesSitemapUrls($siteUrl, $supportedLangs);
+
+        $productsXml = self::urlsToUrlsetXml($productsUrls);
+        $blogXml = self::urlsToUrlsetXml($blogUrls);
+        $pagesXml = self::urlsToUrlsetXml($pagesUrls);
+        $imageXml = self::generateImageSitemap();
+
+        $lastmods = [
+            'products-sitemap.xml' => self::maxLastmodAmongUrls($productsUrls),
+            'blog-sitemap.xml' => self::maxLastmodAmongUrls($blogUrls),
+            'pages-sitemap.xml' => self::maxLastmodAmongUrls($pagesUrls),
+            'image-sitemap.xml' => date('c'),
+        ];
+
+        return [
+            'index' => self::buildSitemapIndexXml($siteUrl, $lastmods),
+            'products' => $productsXml,
+            'blog' => $blogXml,
+            'pages' => $pagesXml,
+            'image' => $imageXml,
+        ];
+    }
+
+    /** @param array<string, string> $bundles */
+    private static function persistSitemapCaches(array $bundles): void
+    {
+        $dir = self::sitemapCacheDir();
+        if (!is_dir($dir)) {
+            @mkdir($dir, 0755, true);
+        }
+        if (!is_dir($dir) || !is_writable($dir)) {
+            return;
+        }
+        foreach (self::sitemapCacheBasenames() as $part => $basename) {
+            if (!isset($bundles[$part])) {
+                continue;
+            }
+            file_put_contents($dir . '/' . $basename, $bundles[$part], LOCK_EX);
+        }
+    }
+
+    /**
+     * @param array<int, array{loc: string, lastmod: string, changefreq: string, priority: float|int}> $urls
+     */
+    private static function urlsToUrlsetXml(array $urls): string
+    {
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        foreach ($urls as $url) {
+            self::appendSitemapUrlXml($xml, $url);
+        }
+        $xml .= '</urlset>';
+
+        return $xml;
+    }
+
+    /**
+     * @param array<int, array{loc: string, lastmod: string, changefreq: string, priority: float|int}> $urls
+     */
+    private static function maxLastmodAmongUrls(array $urls): string
+    {
+        $maxTs = 0;
+        foreach ($urls as $u) {
+            $ts = strtotime((string) ($u['lastmod'] ?? ''));
+            if ($ts !== false && $ts > $maxTs) {
+                $maxTs = $ts;
+            }
+        }
+
+        return $maxTs > 0 ? date('c', $maxTs) : date('c');
+    }
+
+    /** @param array<string, string> $childLastmods keys like products-sitemap.xml */
+    private static function buildSitemapIndexXml(string $siteUrl, array $childLastmods): string
+    {
+        $siteUrl = rtrim($siteUrl, '/');
+        $children = ['products-sitemap.xml', 'blog-sitemap.xml', 'pages-sitemap.xml', 'image-sitemap.xml'];
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $xml .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        foreach ($children as $child) {
+            $lm = $childLastmods[$child] ?? date('c');
+            $xml .= "  <sitemap>\n";
+            $xml .= '    <loc>' . htmlspecialchars($siteUrl . '/' . $child, ENT_XML1, 'UTF-8') . "</loc>\n";
+            $xml .= '    <lastmod>' . htmlspecialchars($lm, ENT_XML1, 'UTF-8') . "</lastmod>\n";
+            $xml .= "  </sitemap>\n";
+        }
+        $xml .= '</sitemapindex>';
+
+        return $xml;
+    }
+
+    /**
+     * @param array<int|string, mixed> $supportedLangs
+     *
+     * @return array<int, array{loc: string, lastmod: string, changefreq: string, priority: float|int}>
+     */
+    private static function collectProductsSitemapUrls(string $siteUrl, array $supportedLangs): array
+    {
+        $urls = [];
+        foreach ($supportedLangs as $lang) {
+            $lang = trim((string) $lang);
+            if ($lang === '') {
+                continue;
+            }
+
+            $cats = JsonStore::langData($lang, 'categories')->read();
+            if (is_array($cats)) {
+                foreach ($cats as $cat) {
+                    if (!is_array($cat) || empty($cat['slug'])) {
+                        continue;
+                    }
+                    $urls[] = [
+                        'loc' => $siteUrl . '/' . $lang . '/products/' . rawurlencode((string) $cat['slug']),
+                        'lastmod' => self::resolveSitemapLastmod($cat),
+                        'changefreq' => 'weekly',
+                        'priority' => 0.9,
+                    ];
+                }
+            }
+
+            $idx = ProductFileStore::getIndex($lang);
+            if (is_array($idx) && $idx !== []) {
+                foreach ($idx as $item) {
+                    if (!is_array($item) || empty($item['slug'])) {
+                        continue;
+                    }
+                    if (!ProductPublishState::isPublicVisible($item)) {
+                        continue;
+                    }
+                    $urls[] = [
+                        'loc' => $siteUrl . '/' . $lang . '/product/' . rawurlencode((string) $item['slug']),
+                        'lastmod' => self::resolveSitemapLastmod($item),
+                        'changefreq' => 'weekly',
+                        'priority' => 0.85,
+                    ];
+                }
+            } else {
+                $products = JsonStore::langData($lang, 'products')->read();
+                if (is_array($products)) {
+                    foreach ($products as $item) {
+                        if (!is_array($item) || empty($item['slug'])) {
+                            continue;
+                        }
+                        if (!ProductPublishState::isPublicVisible($item)) {
+                            continue;
+                        }
+                        $urls[] = [
+                            'loc' => $siteUrl . '/' . $lang . '/product/' . rawurlencode((string) $item['slug']),
+                            'lastmod' => self::resolveSitemapLastmod($item),
+                            'changefreq' => 'weekly',
+                            'priority' => 0.85,
+                        ];
+                    }
+                }
+            }
+        }
+
+        return $urls;
+    }
+
+    /**
+     * @param array<int|string, mixed> $supportedLangs
+     *
+     * @return array<int, array{loc: string, lastmod: string, changefreq: string, priority: float|int}>
+     */
+    private static function collectBlogSitemapUrls(string $siteUrl, array $supportedLangs): array
+    {
+        $urls = [];
+        $now = date('c');
+        foreach ($supportedLangs as $lang) {
+            $lang = trim((string) $lang);
+            if ($lang === '') {
+                continue;
+            }
+
+            $urls[] = [
+                'loc' => $siteUrl . '/' . $lang . '/blog',
+                'lastmod' => $now,
+                'changefreq' => 'weekly',
+                'priority' => 0.85,
+            ];
+
+            $store = JsonStore::langData($lang, 'blog')->read();
+            if (!is_array($store)) {
+                continue;
+            }
+            foreach ($store as $item) {
+                if (!is_array($item) || empty($item['slug'])) {
+                    continue;
+                }
+                if (($item['status'] ?? 'published') !== 'published') {
+                    continue;
+                }
+                $urls[] = [
+                    'loc' => $siteUrl . '/' . $lang . '/blog/' . rawurlencode((string) $item['slug']),
+                    'lastmod' => self::resolveSitemapLastmod($item),
+                    'changefreq' => 'monthly',
+                    'priority' => 0.72,
+                ];
+            }
+        }
+
+        return $urls;
+    }
+
+    /**
+     * @param array<int|string, mixed> $supportedLangs
+     *
+     * @return array<int, array{loc: string, lastmod: string, changefreq: string, priority: float|int}>
+     */
+    private static function collectPagesSitemapUrls(string $siteUrl, array $supportedLangs): array
+    {
         $urls = [];
         $now = date('c');
 
@@ -732,7 +1015,6 @@ class SEO
             'factory' => ['priority' => 0.75, 'changefreq' => 'weekly'],
             'about' => ['priority' => 0.8, 'changefreq' => 'weekly'],
             'cases' => ['priority' => 0.8, 'changefreq' => 'weekly'],
-            'blog' => ['priority' => 0.85, 'changefreq' => 'weekly'],
             'contact' => ['priority' => 0.75, 'changefreq' => 'weekly'],
             'newsletter' => ['priority' => 0.5, 'changefreq' => 'monthly'],
         ];
@@ -752,57 +1034,17 @@ class SEO
                 ];
             }
 
-            $cats = JsonStore::langData($lang, 'categories')->read();
-            if (is_array($cats)) {
-                foreach ($cats as $cat) {
-                    if (!is_array($cat) || empty($cat['slug'])) {
-                        continue;
-                    }
-                    $urls[] = [
-                        'loc' => $siteUrl . '/' . $lang . '/products/' . rawurlencode((string) $cat['slug']),
-                        'lastmod' => self::resolveSitemapLastmod($cat),
-                        'changefreq' => 'weekly',
-                        'priority' => 0.9,
-                    ];
-                }
-            }
-
-            $products = JsonStore::langData($lang, 'products')->read();
-            if (is_array($products)) {
-                foreach ($products as $item) {
+            $caseStore = JsonStore::langData($lang, 'cases')->read();
+            if (is_array($caseStore)) {
+                foreach ($caseStore as $item) {
                     if (!is_array($item) || empty($item['slug'])) {
                         continue;
                     }
-                    if (!ProductPublishState::isPublicVisible($item)) {
+                    if (isset($item['status']) && $item['status'] !== 'published') {
                         continue;
                     }
                     $urls[] = [
-                        'loc' => $siteUrl . '/' . $lang . '/product/' . rawurlencode((string) $item['slug']),
-                        'lastmod' => self::resolveSitemapLastmod($item),
-                        'changefreq' => 'weekly',
-                        'priority' => 0.85,
-                    ];
-                }
-            }
-
-            foreach (['cases', 'blog'] as $type) {
-                $store = JsonStore::langData($lang, $type)->read();
-                $pathSeg = $type === 'cases' ? 'cases' : 'blog';
-                if (!is_array($store)) {
-                    continue;
-                }
-                foreach ($store as $item) {
-                    if (!is_array($item) || empty($item['slug'])) {
-                        continue;
-                    }
-                    if ($type === 'blog' && ($item['status'] ?? 'published') !== 'published') {
-                        continue;
-                    }
-                    if ($type === 'cases' && isset($item['status']) && $item['status'] !== 'published') {
-                        continue;
-                    }
-                    $urls[] = [
-                        'loc' => $siteUrl . '/' . $lang . '/' . $pathSeg . '/' . rawurlencode((string) $item['slug']),
+                        'loc' => $siteUrl . '/' . $lang . '/cases/' . rawurlencode((string) $item['slug']),
                         'lastmod' => self::resolveSitemapLastmod($item),
                         'changefreq' => 'monthly',
                         'priority' => 0.72,
@@ -826,16 +1068,16 @@ class SEO
             }
         }
 
-        $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
-        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+        return $urls;
+    }
 
-        foreach ($urls as $url) {
-            self::appendSitemapUrlXml($xml, $url);
-        }
+    /** Sitemap index XML (same document served at /sitemap.xml and /sitemap-index.xml). */
+    public static function generateSitemap(): string
+    {
+        $bundles = self::materializeSitemapCaches();
+        self::persistSitemapCaches($bundles);
 
-        $xml .= '</urlset>';
-
-        return $xml;
+        return $bundles['index'];
     }
 
     /**
@@ -951,6 +1193,64 @@ class SEO
                 $xml .= '    </image:image>' . "\n";
                 $xml .= "  </url>\n";
             }
+
+            // ── Cases ─────────────────────────────────────────────────────────
+            $caseStore = JsonStore::langData($lang, 'cases')->read();
+            if (!is_array($caseStore)) {
+                $caseStore = [];
+            }
+            foreach ($caseStore as $case) {
+                if (!is_array($case) || empty($case['slug'])) {
+                    continue;
+                }
+                $imgRaw = trim((string) ($case['image'] ?? ''));
+                if ($imgRaw === '') {
+                    continue;
+                }
+                $pageUrl = $siteUrl . '/' . $lang . '/cases/' . rawurlencode((string) $case['slug']);
+                $text    = self::resolveImageSitemapText($imgRaw, '', (string) ($case['title'] ?? ''));
+                $block   = self::buildImageXmlEntry($siteUrl, $imgRaw, $text, $text);
+                if ($block === '') {
+                    continue;
+                }
+                $lastmod = self::resolveSitemapLastmod($case);
+                $xml .= "  <url>\n";
+                $xml .= '    <loc>' . htmlspecialchars($pageUrl, ENT_XML1, 'UTF-8') . "</loc>\n";
+                $xml .= '    <lastmod>' . htmlspecialchars($lastmod, ENT_XML1, 'UTF-8') . "</lastmod>\n";
+                $xml .= '    <changefreq>monthly</changefreq>' . "\n";
+                $xml .= '    <priority>' . self::formatSitemapPriority(0.60) . "</priority>\n";
+                $xml .= $block;
+                $xml .= "  </url>\n";
+            }
+
+            // ── Pages ─────────────────────────────────────────────────────────
+            $pageStore = JsonStore::langData($lang, 'pages')->read();
+            if (!is_array($pageStore)) {
+                $pageStore = [];
+            }
+            foreach ($pageStore as $page) {
+                if (!is_array($page) || empty($page['slug'])) {
+                    continue;
+                }
+                $imgRaw = trim((string) ($page['featured_image'] ?? ''));
+                if ($imgRaw === '') {
+                    continue;
+                }
+                $pageUrl = $siteUrl . '/' . $lang . '/' . rawurlencode((string) $page['slug']);
+                $text    = self::resolveImageSitemapText($imgRaw, '', (string) ($page['title'] ?? ''));
+                $block   = self::buildImageXmlEntry($siteUrl, $imgRaw, $text, $text);
+                if ($block === '') {
+                    continue;
+                }
+                $lastmod = self::resolveSitemapLastmod($page);
+                $xml .= "  <url>\n";
+                $xml .= '    <loc>' . htmlspecialchars($pageUrl, ENT_XML1, 'UTF-8') . "</loc>\n";
+                $xml .= '    <lastmod>' . htmlspecialchars($lastmod, ENT_XML1, 'UTF-8') . "</lastmod>\n";
+                $xml .= '    <changefreq>monthly</changefreq>' . "\n";
+                $xml .= '    <priority>' . self::formatSitemapPriority(0.55) . "</priority>\n";
+                $xml .= $block;
+                $xml .= "  </url>\n";
+            }
         }
 
         $xml .= '</urlset>';
@@ -968,6 +1268,64 @@ class SEO
             return $pathOrUrl;
         }
         return $siteUrl . (strncmp($pathOrUrl, '/', 1) === 0 ? $pathOrUrl : '/' . $pathOrUrl);
+    }
+
+    /**
+     * Resolve the best caption / title text for an image sitemap entry.
+     *
+     * Priority: explicit alt_text → MediaMetaStore alt → $fallback.
+     * MediaMetaStore::readAll() is in-process cached — no extra disk I/O.
+     */
+    private static function resolveImageSitemapText(string $imgUrl, string $altText, string $fallback): string
+    {
+        $candidate = trim($altText);
+        if ($candidate !== '') {
+            return $candidate;
+        }
+
+        $normalized = MediaMetaStore::normalizeWebPath($imgUrl);
+        if ($normalized !== '') {
+            $meta    = MediaMetaStore::get($imgUrl);
+            $metaAlt = trim((string) ($meta['alt'] ?? ''));
+            if ($metaAlt !== '') {
+                return $metaAlt;
+            }
+        }
+
+        return trim($fallback);
+    }
+
+    /**
+     * Build a single <image:image> XML block.
+     *
+     * Used for the cases/pages additions; keeps new code DRY without
+     * touching the existing products/blog generation loops.
+     *
+     * @param string $siteUrl   Absolute site URL (no trailing slash)
+     * @param string $imgUrl    Image web path or absolute URL
+     * @param string $caption   <image:caption> value (empty → omitted)
+     * @param string $titleText <image:title>   value (empty → omitted)
+     */
+    private static function buildImageXmlEntry(
+        string $siteUrl,
+        string $imgUrl,
+        string $caption,
+        string $titleText = ''
+    ): string {
+        $abs = self::absoluteImageLoc($siteUrl, $imgUrl);
+        if ($abs === '') {
+            return '';
+        }
+        $xml  = '    <image:image>' . "\n";
+        $xml .= '      <image:loc>' . htmlspecialchars($abs, ENT_XML1, 'UTF-8') . "</image:loc>\n";
+        if ($caption !== '') {
+            $xml .= '      <image:caption>' . htmlspecialchars($caption, ENT_XML1, 'UTF-8') . "</image:caption>\n";
+        }
+        if ($titleText !== '') {
+            $xml .= '      <image:title>' . htmlspecialchars($titleText, ENT_XML1, 'UTF-8') . "</image:title>\n";
+        }
+        $xml .= '    </image:image>' . "\n";
+        return $xml;
     }
 
     private function getSeoData(string $page, string $slug, array $overrides): array

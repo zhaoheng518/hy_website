@@ -7,10 +7,16 @@ $summary    = $auditResult['summary']    ?? [];
 $issues     = $auditResult['issues']     ?? [];
 $totalPages = $auditResult['total_pages'] ?? 0;
 $scannedAt  = $auditResult['scanned_at'] ?? '';
-$totalIssues = (int) ($summary['total']    ?? 0);
-$crit        = (int) ($summary['critical'] ?? 0);
-$warn        = (int) ($summary['warning']  ?? 0);
-$info        = (int) ($summary['info']     ?? 0);
+$totalIssues    = (int)  ($summary['total']             ?? 0);
+$crit           = (int)  ($summary['critical']          ?? 0);
+$warn           = (int)  ($summary['warning']           ?? 0);
+$info           = (int)  ($summary['info']              ?? 0);
+$missingAlt     = (int)  ($summary['missing_alt']       ?? 0);
+$brokenLinks    = (int)  ($summary['broken_links']      ?? 0);
+$missingOg      = (int)  ($summary['missing_og_image']  ?? 0);
+$slugIssues     = (int)  ($summary['slug_issues']       ?? 0);
+$securityWarn   = (int)  ($summary['security_warnings'] ?? 0);
+$robotsBlocked  = (bool) ($summary['robots_blocked']    ?? false);
 
 $e = function (string $v): string {
     return htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
@@ -44,6 +50,35 @@ function auditFilterUrl(string $lang, string $type, int $page = 1): string {
 ?>
 
 <div class="space-y-6">
+
+    <!-- ══ robots_block_all critical banner ═══════════════════════════════════ -->
+    <?php if ($robotsBlocked): ?>
+    <div class="flex items-start gap-3 rounded-lg border border-red-400 bg-red-50 px-5 py-4">
+        <svg class="w-6 h-6 text-red-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+        </svg>
+        <div>
+            <p class="font-bold text-red-700 text-sm">全站 Noindex 已开启 — 搜索引擎无法索引整站！</p>
+            <p class="text-red-600 text-xs mt-1">site.json 中 <code class="font-mono bg-red-100 px-1 rounded">robots_block_all</code> 为 true。
+               请立即前往 <a href="/admin/seo" class="underline font-medium">SEO 总控</a> 关闭，除非你有意屏蔽索引。</p>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <!-- ══ 404 Monitor companion link ════════════════════════════════════════ -->
+    <div class="flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 px-4 py-3">
+        <svg class="w-5 h-5 text-red-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+        </svg>
+        <p class="text-sm text-red-700 flex-1">
+            404 错误会直接流失 SEO 权重。配合 404 监控，找到高频死链并一键创建 301 修复。
+        </p>
+        <a href="/admin/404monitor"
+           class="shrink-0 rounded-md border border-red-300 bg-white text-red-700 px-3 py-1.5 text-xs font-medium hover:bg-red-100 transition-colors whitespace-nowrap">
+            查看 404 监控 →
+        </a>
+    </div>
 
     <!-- ══ Summary cards ══════════════════════════════════════════════════════ -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -102,6 +137,76 @@ function auditFilterUrl(string $lang, string $type, int $page = 1): string {
                 <div class="text-xs text-blue-400 mt-0.5">可选优化</div>
             </div>
         </div>
+    </div>
+
+    <!-- ══ Specialised counters row ══════════════════════════════════════════ -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+
+        <!-- Missing ALT -->
+        <div class="bg-white rounded-lg shadow-sm border border-orange-200 p-4 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+            </div>
+            <div>
+                <div class="text-xl font-bold text-orange-700"><?php echo $missingAlt; ?></div>
+                <div class="text-xs text-orange-500">图片 ALT 缺失</div>
+            </div>
+        </div>
+
+        <!-- Broken Links -->
+        <div class="bg-white rounded-lg shadow-sm border border-red-200 p-4 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                </svg>
+            </div>
+            <div>
+                <div class="text-xl font-bold text-red-700"><?php echo $brokenLinks; ?></div>
+                <div class="text-xs text-red-500">死链 / 危险链接</div>
+            </div>
+        </div>
+
+        <!-- Missing OG Image -->
+        <div class="bg-white rounded-lg shadow-sm border border-purple-200 p-4 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+                </svg>
+            </div>
+            <div>
+                <div class="text-xl font-bold text-purple-700"><?php echo $missingOg; ?></div>
+                <div class="text-xs text-purple-500">缺失 OG 图片</div>
+            </div>
+        </div>
+
+        <!-- Slug Issues -->
+        <div class="bg-white rounded-lg shadow-sm border border-yellow-200 p-4 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                </svg>
+            </div>
+            <div>
+                <div class="text-xl font-bold text-yellow-700"><?php echo $slugIssues; ?></div>
+                <div class="text-xs text-yellow-600">Slug 问题</div>
+            </div>
+        </div>
+
+        <!-- Security Warnings -->
+        <div class="bg-white rounded-lg shadow-sm border border-rose-200 p-4 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+            </div>
+            <div>
+                <div class="text-xl font-bold text-rose-700"><?php echo $securityWarn; ?></div>
+                <div class="text-xs text-rose-500">安全警告</div>
+            </div>
+        </div>
+
     </div>
 
     <!-- ══ Top-issues breakdown ════════════════════════════════════════════════ -->
@@ -301,7 +406,8 @@ function auditFilterUrl(string $lang, string $type, int $page = 1): string {
             <p><span class="text-green-400">$</span> php app/commands/SeoAudit.php</p>
             <p><span class="text-green-400">$</span> php app/commands/SeoAudit.php --lang=en</p>
             <p><span class="text-green-400">$</span> php app/commands/SeoAudit.php --type=product</p>
-            <p><span class="text-green-400">$</span> php app/commands/SeoAudit.php --lang=en --type=product --format=json</p>
+            <p><span class="text-green-400">$</span> php app/commands/SeoAudit.php --limit=200</p>
+            <p><span class="text-green-400">$</span> php app/commands/SeoAudit.php --lang=en --type=product --limit=100 --format=json</p>
         </div>
     </div>
 

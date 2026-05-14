@@ -74,6 +74,28 @@ class View
             $data['megaMenuItems'] = $homeData['products']['items'] ?? [];
         }
 
+        // 后台 Sidebar：数据库驱动（未迁移时 AdminMenuService 会返回提示 HTML）
+        if ($this->isAdmin && !$standalone && !isset($data['adminSidebarNavHtml'])) {
+            $data['adminSidebarNavHtml'] = '';
+            $data['adminSidebarError'] = '';
+            try {
+                if (Auth::check()) {
+                    $db = Database::getInstance();
+                    $svc = new \App\Services\AdminMenuService($db);
+                    $data['adminSidebarNavHtml'] = $svc->renderSidebarHtml(
+                        (string) ($data['activeMenu'] ?? ''),
+                        static function (string $perm): bool {
+                            return Auth::can($perm, 'read');
+                        },
+                        (int) ($data['unreadInquiries'] ?? 0)
+                    );
+                }
+            } catch (\Throwable $e) {
+                $data['adminSidebarError'] = $e->getMessage();
+                error_log('[View] admin sidebar: ' . $e->getMessage());
+            }
+        }
+
         extract($data, EXTR_SKIP);
 
         if ($standalone) {

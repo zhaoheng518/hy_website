@@ -4,7 +4,7 @@
         "slug": "factory",
         "subtitle": "State-of-the-art manufacturing with rigorous quality control",
         "featured_image": "",
-        "content": "<h2>Our Facility</h2><p>Our 50,000 sqm facility houses advanced R&D labs, clean-room production environments, and comprehensive testing equipment. With over 200 engineers and ISO 9001 certified processes, we deliver precision-engineered solutions that meet the most demanding military specifications.</p><h2>Quality Assurance</h2><p>Every product undergoes rigorous testing and inspection before leaving our facility, ensuring compliance with MIL-SPEC and international quality standards.</p>",
+        "content": "<h2>Our Facility<\/h2><p>Our 50,000 sqm facility houses advanced R&D labs, clean-room production environments, and comprehensive testing equipment. With over 200 engineers and ISO 9001 certified processes, we deliver precision-engineered solutions that meet the most demanding military specifications.<\/p><h2>Quality Assurance<\/h2><p>Every product undergoes rigorous testing and inspection before leaving our facility, ensuring compliance with MIL-SPEC and international quality standards.<\/p>",
         "seo_title": "Factory & Capabilities - Stitch Tech",
         "seo_description": "Explore Stitch Tech's state-of-the-art manufacturing facility, advanced R&D labs, and ISO 9001 certified quality processes."
     },
@@ -13,7 +13,7 @@
         "slug": "about",
         "subtitle": "Precision engineering trusted by defense contractors worldwide",
         "featured_image": "",
-        "content": "<h2>Our Story</h2><p>Founded in 2008, Stitch Tech has grown from a specialized sewing machine manufacturer into a comprehensive defense technology provider. Our commitment to precision engineering and continuous innovation has made us a trusted partner for military contractors across 40+ countries.</p><h2>Our Mission</h2><p>To deliver precision-engineered solutions that meet the most demanding military specifications, empowering defense contractors worldwide with reliable, cutting-edge technology.</p><h2>Certifications</h2><ul><li>ISO 9001 Quality Management</li><li>ISO 14001 Environmental Management</li><li>MIL-SPEC Compliance</li><li>NATO Qualified Supplier</li></ul>",
+        "content": "<h2>Our Story<\/h2><p>Founded in 2008, Stitch Tech has grown from a specialized sewing machine manufacturer into a comprehensive defense technology provider. Our commitment to precision engineering and continuous innovation has made us a trusted partner for military contractors across 40+ countries.<\/p><h2>Our Mission<\/h2><p>To deliver precision-engineered solutions that meet the most demanding military specifications, empowering defense contractors worldwide with reliable, cutting-edge technology.<\/p><h2>Certifications<\/h2><ul><li>ISO 9001 Quality Management<\/li><li>ISO 14001 Environmental Management<\/li><li>MIL-SPEC Compliance<\/li><li>NATO Qualified Supplier<\/li><\/ul>",
         "seo_title": "About Stitch Tech - Defense Technology Provider",
         "seo_description": "Learn about Stitch Tech's journey from a specialized manufacturer to a comprehensive defense technology provider serving 40+ countries."
     },
@@ -22,7 +22,7 @@
         "slug": "cases",
         "subtitle": "Proven performance across defense and industrial sectors",
         "featured_image": "",
-        "content": "<h2>Applications & Solutions</h2><p>Our products and solutions have been deployed across a wide range of defense and industrial applications, from body armor production to aerospace composite manufacturing.</p>",
+        "content": "<h2>Applications & Solutions<\/h2><p>Our products and solutions have been deployed across a wide range of defense and industrial applications, from body armor production to aerospace composite manufacturing.<\/p>",
         "seo_title": "Case Studies - Stitch Tech",
         "seo_description": "Discover how Stitch Tech's solutions are applied across defense and industrial sectors worldwide."
     }

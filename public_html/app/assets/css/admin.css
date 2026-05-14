@@ -303,3 +303,24 @@ a:hover { text-decoration: underline; }
     .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
     .product-edit-form { max-width: 100%; }
 }
+
+/* ========== 动态后台 Sidebar（admin_menus） ========== */
+.admin-nav-branch .admin-nav-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.28s ease-out;
+}
+.admin-nav-branch.is-open .admin-nav-submenu {
+    max-height: 2400px;
+}
+.admin-nav-branch.is-open .admin-nav-chevron {
+    transform: rotate(180deg);
+}
+.admin-nav-parent {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font: inherit;
+    color: inherit;
+}
+

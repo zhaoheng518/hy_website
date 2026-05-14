@@ -354,10 +354,10 @@ CREATE TABLE IF NOT EXISTS `activity_logs` (
 -- -----------------------------------------------------
 -- 初始化默认管理员账号
 -- 用户名: admin
--- 密码: admin123
+-- 密码: admin123（bcrypt 与注释一致；旧版误用的 92IX… 哈希实际对应明文 password）
 -- -----------------------------------------------------
 INSERT INTO `users` (`username`, `password_hash`, `email`, `role`) VALUES
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin@example.com', 'super_admin');
+('admin', '$2y$10$Wi.04El7tO5tUbe.XypJ3O72USWqByXaVqoyCdkx9Fn9KDCw1WjQy', 'admin@example.com', 'super_admin');
 
 -- -----------------------------------------------------
 -- 初始化默认系统设置

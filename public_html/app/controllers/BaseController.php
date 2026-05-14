@@ -7,22 +7,22 @@ use App\Core\Config;
 use App\Core\JsonStore;
 use App\Core\MetaHelper;
 use App\Core\NotFoundLogger;
-use App\Core\SEO;
 use App\Core\View;
+use App\Seo\SeoEngine;
 
 abstract class BaseController
 {
     protected string $lang;
     protected bool $isAdmin;
     protected View $view;
-    protected SEO $seo;
+    protected SeoEngine $seo;
 
     public function __construct(string $lang, bool $isAdmin = false)
     {
         $this->lang = $lang;
         $this->isAdmin = $isAdmin;
         $this->view = new View($lang, $isAdmin);
-        $this->seo = new SEO($lang);
+        $this->seo = new SeoEngine($lang);
     }
 
     protected function jsonInput(): array
@@ -139,7 +139,7 @@ abstract class BaseController
 
         $view = new View($this->lang, false);
         $siteName = Config::get('site_name', 'Site');
-        $seo = new SEO($this->lang);
+        $seo = new SeoEngine($this->lang);
         $seoHead = '<title>' . htmlspecialchars(MetaHelper::titleWithBrand('404', $siteName), ENT_QUOTES, 'UTF-8') . "</title>\n";
         $seoHead .= '<meta name="robots" content="noindex, follow">' . "\n";
         $seoHead .= $seo->renderCanonical('/' . $this->lang);

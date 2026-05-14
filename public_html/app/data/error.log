@@ -1,1 +1,166 @@
 [11-May-2026 09:25:08 UTC] [Auth] admin_permissions.json auto-initialized (1 user(s))
+[14-May-2026 01:46:05 UTC] [2026-05-14 01:46:05] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:46:13 UTC] [2026-05-14 01:46:13] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:46:13 UTC] [Auth] Login failed: 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES)
+[14-May-2026 01:46:13 UTC] [2026-05-14 01:46:13] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:47:39 UTC] [2026-05-14 01:47:39] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:47:39 UTC] [Auth] Login failed: 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES)
+[14-May-2026 01:47:39 UTC] [2026-05-14 01:47:39] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:49:10 UTC] [2026-05-14 01:49:10] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:49:10 UTC] [Auth] Login failed: 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES)
+[14-May-2026 01:49:10 UTC] [2026-05-14 01:49:10] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:49:48 UTC] [2026-05-14 01:49:48] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:49:57 UTC] [2026-05-14 01:49:57] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:49:57 UTC] [Auth] Login failed: 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES)
+[14-May-2026 01:49:57 UTC] [2026-05-14 01:49:57] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:50:15 UTC] [2026-05-14 01:50:15] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:50:15 UTC] [Auth] Login failed: 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES)
+[14-May-2026 01:50:15 UTC] [2026-05-14 01:50:15] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:53:20 UTC] [2026-05-14 01:53:20] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 01:55:51 UTC] [2026-05-14 01:55:51] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 02:02:45 UTC] [2026-05-14 02:02:45] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 02:02:47 UTC] [2026-05-14 02:02:47] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 02:08:25 UTC] [2026-05-14 02:08:25] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 02:08:32 UTC] [2026-05-14 02:08:32] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 02:08:32 UTC] [Auth] Login failed: 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES)
+[14-May-2026 02:08:32 UTC] [2026-05-14 02:08:32] 数据库连接失败: SQLSTATE[HY000] [1045] Access denied for user 'u845644757_rays'@'localhost' (using password: YES) | Host: localhost:3306 | DB: u845644757_rays
+[14-May-2026 02:27:35 UTC] [2026-05-14 02:27:35] syntax error, unexpected token "{", expecting ")" in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php:362
+Stack trace:
+#0 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminSEOController.php(102): {closure:/Users/zhaoheng/Desktop/Project/hy_website/public_html/bootstrap/app.php:74}('App\\Core\\SeoAud...')
+#1 [internal function]: App\Controllers\AdminSEOController->audit()
+#2 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(416): call_user_func_array(Array, Array)
+#3 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(74): App\Core\Router->executeController()
+#4 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/http/Application.php(15): App\Core\Router->dispatch()
+#5 /Users/zhaoheng/Desktop/Project/hy_website/public_html/index.php(60): App\Http\Application::serveHttp()
+#6 {main}
+[14-May-2026 03:14:19 UTC] PHP Fatal error:  Access level to App\Controllers\AdminDownloadController::getQuery() must be protected (as in class App\Controllers\BaseController) or weaker in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminDownloadController.php on line 45
+[14-May-2026 03:34:20 UTC] [2026-05-14 03:34:20] syntax error, unexpected token "{", expecting ")" in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php:362
+Stack trace:
+#0 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminSEOController.php(102): {closure:/Users/zhaoheng/Desktop/Project/hy_website/public_html/bootstrap/app.php:74}('App\\Core\\SeoAud...')
+#1 [internal function]: App\Controllers\AdminSEOController->audit()
+#2 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(416): call_user_func_array(Array, Array)
+#3 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(74): App\Core\Router->executeController()
+#4 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/http/Application.php(15): App\Core\Router->dispatch()
+#5 /Users/zhaoheng/Desktop/Project/hy_website/public_html/index.php(60): App\Http\Application::serveHttp()
+#6 {main}
+[14-May-2026 03:39:55 UTC] PHP Fatal error:  Access level to App\Controllers\AdminDownloadController::getQuery() must be protected (as in class App\Controllers\BaseController) or weaker in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminDownloadController.php on line 45
+[14-May-2026 03:45:20 UTC] [2026-05-14 03:45:20] syntax error, unexpected token "{", expecting ")" in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php:362
+Stack trace:
+#0 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminSEOController.php(102): {closure:/Users/zhaoheng/Desktop/Project/hy_website/public_html/bootstrap/app.php:74}('App\\Core\\SeoAud...')
+#1 [internal function]: App\Controllers\AdminSEOController->audit()
+#2 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(416): call_user_func_array(Array, Array)
+#3 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(74): App\Core\Router->executeController()
+#4 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/http/Application.php(15): App\Core\Router->dispatch()
+#5 /Users/zhaoheng/Desktop/Project/hy_website/public_html/index.php(60): App\Http\Application::serveHttp()
+#6 {main}
+[14-May-2026 06:34:34 UTC] [2026-05-14 06:34:34] syntax error, unexpected token "{", expecting ")" in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php:362
+Stack trace:
+#0 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminSEOController.php(102): {closure:/Users/zhaoheng/Desktop/Project/hy_website/public_html/bootstrap/app.php:74}('App\\Core\\SeoAud...')
+#1 [internal function]: App\Controllers\AdminSEOController->audit()
+#2 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(416): call_user_func_array(Array, Array)
+#3 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(74): App\Core\Router->executeController()
+#4 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/http/Application.php(15): App\Core\Router->dispatch()
+#5 /Users/zhaoheng/Desktop/Project/hy_website/public_html/index.php(60): App\Http\Application::serveHttp()
+#6 {main}
+[14-May-2026 06:35:50 UTC] PHP Fatal error:  Access level to App\Controllers\AdminDownloadController::getQuery() must be protected (as in class App\Controllers\BaseController) or weaker in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminDownloadController.php on line 45
+[14-May-2026 06:38:52 UTC] [2026-05-14 06:38:52] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 06:38:52 UTC] [2026-05-14 06:38:52] Call to undefined method App\Core\DownloadLogger::countByFile() in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminDownloadController.php:44
+Stack trace:
+#0 [internal function]: App\Controllers\AdminDownloadController->index()
+#1 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(416): call_user_func_array(Array, Array)
+#2 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(74): App\Core\Router->executeController()
+#3 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/http/Application.php(15): App\Core\Router->dispatch()
+#4 /Users/zhaoheng/Desktop/Project/hy_website/public_html/index.php(60): App\Http\Application::serveHttp()
+#5 {main}
+[14-May-2026 06:39:08 UTC] [2026-05-14 06:39:08] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 06:39:08 UTC] [2026-05-14 06:39:08] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 06:39:08 UTC] [2026-05-14 06:39:08] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 06:39:08 UTC] [2026-05-14 06:39:08] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 06:49:16 UTC] [2026-05-14 06:49:16] syntax error, unexpected token "{", expecting ")" in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php:362
+Stack trace:
+#0 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminSEOController.php(102): {closure:/Users/zhaoheng/Desktop/Project/hy_website/public_html/bootstrap/app.php:74}('App\\Core\\SeoAud...')
+#1 [internal function]: App\Controllers\AdminSEOController->audit()
+#2 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(416): call_user_func_array(Array, Array)
+#3 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(74): App\Core\Router->executeController()
+#4 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/http/Application.php(15): App\Core\Router->dispatch()
+#5 /Users/zhaoheng/Desktop/Project/hy_website/public_html/index.php(60): App\Http\Application::serveHttp()
+#6 {main}
+[14-May-2026 06:50:34 UTC] [2026-05-14 06:50:34] Class "App\Core\MediaMetaStore" not found in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php:582
+Stack trace:
+#0 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php(155): App\Core\SeoAuditService->checkImageAlts(Array, '[product:en] Ne...', '/en/product/nex...', 'product', 'en')
+#1 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php(78): App\Core\SeoAuditService->scanProducts('en', Array, 500)
+#2 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminSEOController.php(117): App\Core\SeoAuditService->run('', '', 500)
+#3 [internal function]: App\Controllers\AdminSEOController->audit()
+#4 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(416): call_user_func_array(Array, Array)
+#5 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(74): App\Core\Router->executeController()
+#6 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/http/Application.php(15): App\Core\Router->dispatch()
+#7 /Users/zhaoheng/Desktop/Project/hy_website/public_html/index.php(60): App\Http\Application::serveHttp()
+#8 {main}
+[14-May-2026 06:50:37 UTC] [2026-05-14 06:50:37] Class "App\Core\MediaMetaStore" not found in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php:582
+Stack trace:
+#0 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php(155): App\Core\SeoAuditService->checkImageAlts(Array, '[product:en] Ne...', '/en/product/nex...', 'product', 'en')
+#1 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php(78): App\Core\SeoAuditService->scanProducts('en', Array, 500)
+#2 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminSEOController.php(117): App\Core\SeoAuditService->run('', '', 500)
+#3 [internal function]: App\Controllers\AdminSEOController->audit()
+#4 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(416): call_user_func_array(Array, Array)
+#5 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(74): App\Core\Router->executeController()
+#6 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/http/Application.php(15): App\Core\Router->dispatch()
+#7 /Users/zhaoheng/Desktop/Project/hy_website/public_html/index.php(60): App\Http\Application::serveHttp()
+#8 {main}
+[14-May-2026 06:51:15 UTC] [2026-05-14 06:51:15] Class "App\Core\MediaMetaStore" not found in /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php:582
+Stack trace:
+#0 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php(155): App\Core\SeoAuditService->checkImageAlts(Array, '[product:en] Ne...', '/en/product/nex...', 'product', 'en')
+#1 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/SeoAuditService.php(78): App\Core\SeoAuditService->scanProducts('en', Array, 500)
+#2 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/controllers/AdminSEOController.php(117): App\Core\SeoAuditService->run('', '', 500)
+#3 [internal function]: App\Controllers\AdminSEOController->audit()
+#4 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(416): call_user_func_array(Array, Array)
+#5 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/core/Router.php(74): App\Core\Router->executeController()
+#6 /Users/zhaoheng/Desktop/Project/hy_website/public_html/app/http/Application.php(15): App\Core\Router->dispatch()
+#7 /Users/zhaoheng/Desktop/Project/hy_website/public_html/index.php(60): App\Http\Application::serveHttp()
+#8 {main}
+[14-May-2026 07:09:53 UTC] [2026-05-14 07:09:53] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:09:53 UTC] [2026-05-14 07:09:53] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:09:53 UTC] [2026-05-14 07:09:53] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:09:53 UTC] [2026-05-14 07:09:53] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:11:48 UTC] [2026-05-14 07:11:48] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:11:48 UTC] [2026-05-14 07:11:48] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:11:48 UTC] [2026-05-14 07:11:48] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:11:48 UTC] [2026-05-14 07:11:48] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:12:00 UTC] [2026-05-14 07:12:00] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:12:00 UTC] [2026-05-14 07:12:00] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:12:00 UTC] [2026-05-14 07:12:00] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []
+[14-May-2026 07:12:00 UTC] [2026-05-14 07:12:00] SQL查询错误: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'hy_website.download_log' doesn't exist
+SQL: SELECT 1 FROM download_log LIMIT 1
+Params: []

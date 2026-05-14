@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Seo\SeoEngine;
+
 class Router
 {
     private array $supportedLangs;
@@ -14,52 +16,20 @@ class Router
     /** @var string [Module 13] Configurable admin path segment (default: "admin") */
     private string $adminPath = 'admin';
 
-    private static array $frontRouteMap = [
-        'product'    => 'Product',
-        'products'   => 'Product',
-        'factory'    => 'Factory',
-        'about'      => 'About',
-        'cases'      => 'Case',
-        'blog'       => 'Blog',
-        'contact'    => 'Contact',
-        'page'       => 'Page',
-        'compare'    => 'Compare',
-        'search'     => 'Search',
-        'newsletter' => 'Newsletter',
-        'download'   => 'Download',   // Module 10: datasheet download tracking
-    ];
+    /** @var array<string, mixed>|null */
+    private static ?array $routeTables = null;
 
-    private static array $specialRoutes = [
-        'sitemap.xml' => 'Sitemap',
-        'robots.txt'  => 'Sitemap',
-    ];
+    /**
+     * @return array{front: array<string, string>, special: array<string, string>, admin: array<string, array{0: string, 1: string}>}
+     */
+    private static function routes(): array
+    {
+        if (self::$routeTables === null) {
+            self::$routeTables = require APP_PATH . '/http/routes.php';
+        }
 
-    private static array $adminRouteMap = [
-        'login'      => ['AdminAuth', 'login'],
-        'logout'     => ['AdminAuth', 'logout'],
-        'home'       => ['AdminHome', 'index'],
-        'products'   => ['AdminProduct', 'index'],
-        'categories' => ['AdminCategory', 'index'],
-        'pages'      => ['AdminPage', 'index'],
-        'page'       => ['AdminPage', 'cmsIndex'],
-        'inquiries'  => ['AdminInquiry', 'index'],
-        'inquiry_export' => ['AdminInquiry', 'export'],
-        'newsletter' => ['AdminNewsletter', 'index'],
-        'settings'   => ['AdminSetting', 'index'],
-        'seo'        => ['AdminSEO', 'index'],
-        'media'      => ['AdminMedia', 'index'],
-        'languages'  => ['AdminLanguage', 'index'],
-        'sections'   => ['AdminSection', 'index'],
-        'blog'       => ['AdminBlog', 'index'],
-        'case'       => ['AdminCase', 'index'],
-        'files'      => ['AdminFile', 'index'],
-        'menu'       => ['AdminMenu', 'index'],
-        'users'      => ['AdminUser', 'index'],
-        'backup'     => ['AdminBackup', 'index'],
-        'redirects'  => ['AdminRedirect', 'index'],
-        '404monitor' => ['Admin404', 'index'],
-        'downloads'  => ['AdminDownload', 'index'],  // Module 10: download stats
-    ];
+        return self::$routeTables;
+    }
 
     public function __construct()
     {
@@ -287,11 +257,12 @@ class Router
 
         $resource = strtolower($segments[0]);
 
-        if (!isset(self::$frontRouteMap[$resource])) {
+        $front = self::routes()['front'];
+        if (!isset($front[$resource])) {
             $this->send404();
         }
 
-        $this->controller = self::$frontRouteMap[$resource];
+        $this->controller = $front[$resource];
         $wasProductsPlural = (strtolower($resource) === 'products');
         $wasProductSingular = (strtolower($resource) === 'product');
         array_shift($segments);
@@ -393,11 +364,12 @@ class Router
 
         $resource = strtolower($segments[0]);
 
-        if (!isset(self::$adminRouteMap[$resource])) {
+        $admin = self::routes()['admin'];
+        if (!isset($admin[$resource])) {
             $this->send404();
         }
 
-        $routeInfo = self::$adminRouteMap[$resource];
+        $routeInfo = $admin[$resource];
         $this->controller = $routeInfo[0];
         $this->action = $routeInfo[1];
         array_shift($segments);
@@ -484,7 +456,7 @@ class Router
 
         $view = new View($lang, false);
         $siteName = Config::get('site_name', 'Site');
-        $seo = new SEO($lang);
+        $seo = new SeoEngine($lang);
         $seoHead = '<title>' . htmlspecialchars(MetaHelper::titleWithBrand('404', $siteName), ENT_QUOTES, 'UTF-8') . '</title>' . "\n";
         $seoHead .= '<meta name="robots" content="noindex, follow">' . "\n";
         $seoHead .= $seo->renderCanonical('/' . $lang);
